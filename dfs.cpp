@@ -1,4 +1,3 @@
-#include <cassert>
 #include <cstdio>
 #include <ctime>
 #include <vector>
@@ -29,32 +28,29 @@ int readInt() {
     return neg ? -x : x;
 }
 
-template <class T, int N, int SIZE>
+template <class T>
 struct List {
     vector<T> data;
     vector<int> head, next;
     int n;
-    List() : data(SIZE), head(N, -1), next(SIZE), n(0) { }
+    List(int N, int SIZE) : data(SIZE), head(N, -1), next(SIZE), n(0) { }
     void add(int i, T x) {
         next[n] = head[i], data[n] = x, head[i] = n++;
     }
 };
 
-const int N = 3e6;
-List<int, N, 2 * N> g;
-
-void dfs(int v, int p) {
+void dfs(int v, int p, const List<int> &g) {
     for (int i = g.head[v]; i != -1; i = g.next[i]) {
         int x = g.data[i];
         if (x != p) {
-            dfs(x, v);
+            dfs(x, v, g);
         }
     }
 }
 
 int main() {
     int n = readInt();
-    assert(n <= N);
+	List<int> g(n, 2 * n);
     for (int i = 0; i < n - 1; i++) {
         int x = readInt() - 1;
         int y = readInt() - 1;
@@ -64,7 +60,7 @@ int main() {
     fprintf(stderr, "time to read data and build graph = %.0fms\n", 1e3 * clock() / CLOCKS_PER_SEC);
 
     double tmp = clock();
-    dfs(0, -1);
+    dfs(0, -1, g);
     fprintf(stderr, "time in dfs = %.0fms\n", 1e3 * (clock() - tmp) / CLOCKS_PER_SEC);
 
     fprintf(stderr, "total time = %.0fms\n", 1e3 * clock() / CLOCKS_PER_SEC);
