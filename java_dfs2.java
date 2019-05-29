@@ -1,4 +1,4 @@
-/** Fastest dfs by aman28rwt from https://codeforces.com/problemset/status/1088/problem/E?order=BY_CONSUMED_TIME_ASC */
+// Fastest dfs by aman28rwt from https://codeforces.com/problemset/status/1088/problem/E?order=BY_CONSUMED_TIME_ASC
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class dfs2 implements Runnable {
+public class java_dfs2 implements Runnable {
     int[][] packU(int n, int[] from, int[] to) {
         int[][] g = new int[n][];
         int[] p = new int[n];
@@ -31,7 +31,7 @@ public class dfs2 implements Runnable {
         }
     }
     public static void main(String[] args) {
-        new Thread(null, new dfs2(), "1", 1 << 29).start();
+        new Thread(null, new java_dfs2(), "1", 1 << 29).start();
     }
     public void run() {
         try {
