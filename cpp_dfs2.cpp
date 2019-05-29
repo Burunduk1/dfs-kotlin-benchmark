@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <ctime>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -41,13 +42,15 @@ struct List {
     }
 };
 
-void dfs(int v, int p, const List<int> &g) {
+int dfs(int v, int p, const List<int> &g) {
+	int res = 0;
     for (int i = g.head[v]; i != -1; i = g.next[i]) {
         int x = g.data[i];
         if (x != p) {
-            dfs(x, v, g);
+            res = max(res, dfs(x, v, g));
         }
     }
+    return res + 1;
 }
 
 int main() {
@@ -62,7 +65,7 @@ int main() {
     fprintf(stderr, "time to read data and build graph = %.0fms\n", 1e3 * clock() / CLOCKS_PER_SEC);
 
     double tmp = clock();
-    dfs(0, -1, g);
+    printf("depth = %d\n", dfs(0, -1, g));
     fprintf(stderr, "time in dfs = %.0fms\n", 1e3 * (clock() - tmp) / CLOCKS_PER_SEC);
 
     fprintf(stderr, "total time = %.0fms\n", 1e3 * clock() / CLOCKS_PER_SEC);
