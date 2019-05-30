@@ -38,10 +38,10 @@ kt: `kt_dfs3.kt` multilist in one array
 
 ## Experiment results
 
-| Processor                   | OS           | Compilers                | Statistic                    |
-|-----------------------------|--------------|--------------------------|------------------------------|
-| Intel G4600 3.6 GHz         | Windows 10   | g++ 6.3.0, java64 11.0.1 | [statistic.md](statistic.md) |
-| Intel Core i5-5200U 2.2 GHz | Ubuntu 16.04 | g++ 7.1.0, java64 1.8    | ?                            |
+| Processor                   | OS           | Compilers                | Statistic                      |
+|-----------------------------|--------------|--------------------------|--------------------------------|
+| Intel G4600 3.6 GHz         | Windows 10   | g++ 6.3.0, java64 11.0.1 | [statistic.md](statistic.md)   |
+| Intel Core i5-5200U 2.2 GHz | Ubuntu 16.04 | g++ 7.1.0, java64 1.8    | [statistic2.md](statistic2.md) |
 
 All java/kotlin solutions work extremly slow
 on linear-tree tests. Why?
