@@ -25,17 +25,20 @@ fun solve(input: BufferedReader) {
         }
     }))
 
-    fun dfs(v: Int, p: Int = -1) {
+    fun dfs(v: Int, p: Int = -1): Int {
+        var depth = 0
         var e = head[v]
         while (e != -1) {
             if (to[e] != p) {
-                dfs(to[e], v)
+                depth = maxOf(depth, dfs(to[e], v))
             }
             e = next[e]
         }
+        return depth + 1
     }
     System.err.println("time in dfs = %dms".format(measureTimeMillis {
-        dfs(0)
+        val depth = dfs(0)
+        System.err.println("depth = $depth")
     }))
 }
 

@@ -16,15 +16,18 @@ fun solve(input: BufferedReader) {
         }
     }))
 
-    fun dfs(v: Int, p: Int = -1) {
+    fun dfs(v: Int, p: Int = -1): Int {
+        var depth = 0
         for (x in g[v]) {
             if (x != p) {                
-                dfs(x, v)
+                depth = maxOf(depth, dfs(x, v))
             }
         }
+        return depth + 1
     }
     System.err.println("time in dfs = %dms".format(measureTimeMillis {
-	    dfs(0)
+	    val depth = dfs(0)
+        System.err.println("depth = $depth")
 	}))
 }
 

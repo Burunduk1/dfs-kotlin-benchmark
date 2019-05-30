@@ -65,7 +65,8 @@ int main() {
     fprintf(stderr, "time to read data and build graph = %.0fms\n", 1e3 * clock() / CLOCKS_PER_SEC);
 
     double tmp = clock();
-    printf("depth = %d\n", dfs(0, -1, g));
+    int depth = dfs(0, -1, g);
+    printf("depth = %d\n", depth);
     fprintf(stderr, "time in dfs = %.0fms\n", 1e3 * (clock() - tmp) / CLOCKS_PER_SEC);
 
     fprintf(stderr, "total time = %.0fms\n", 1e3 * clock() / CLOCKS_PER_SEC);

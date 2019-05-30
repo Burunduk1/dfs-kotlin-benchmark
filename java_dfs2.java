@@ -1,4 +1,5 @@
 // Fastest dfs by aman28rwt from https://codeforces.com/problemset/status/1088/problem/E?order=BY_CONSUMED_TIME_ASC
+// int[][]
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,13 +24,15 @@ public class java_dfs2 implements Runnable {
         return g;
     }
 
-    void dfs(int[][] g, int u, int p) {
-        for (int v : g[u]) {
-            if (v != p) {
-                dfs(g, v, u);
-            }
-        }
+    public int dfs(int[][] g, int v, int p) {
+        int depth = 0;
+        for (int x : g[v])
+            if (x != p) {
+                depth = Math.max(depth, dfs(g, x, v));
+            }   
+        return depth + 1;
     }
+
     public static void main(String[] args) {
         new Thread(null, new java_dfs2(), "1", 1 << 29).start();
     }
@@ -49,8 +52,9 @@ public class java_dfs2 implements Runnable {
             long t1 = System.currentTimeMillis();
             System.err.format("time to read data and build graph = %dms\n", t1 - t0);
 
-            dfs(g, 0, -1);
+            int depth = dfs(g, 0, -1);
             long t2 = System.currentTimeMillis();
+            System.err.format("depth = %d\n", depth);
             System.err.format("time in dfs = %dms\n", t2 - t1);
             System.err.format("total time = %dms\n", t2 - t0);
         } catch (IOException e) {
