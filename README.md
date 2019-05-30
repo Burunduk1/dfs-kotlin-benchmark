@@ -1,10 +1,15 @@
 # dfs-kotlin-benchmark
-Lets try to figure out, why dfs written in kotlin is so slow
+Lets try to figure out, why dfs written in java/kotlin is so slow
 
 ## input data
 
 input data is a tree  
-`gen_graph.kt` generates straight line: 1-2-3-4-..-n
+
+`gen_graph_line.kt` generates straight line: 1-2-3-4-..-n
+
+`gen_graph_bigdepth.kt` generates 1->2,3; 3->4,5; 5->6,7; ...
+
+`gen_graph_random.kt` generates edges [random(1,i), i+1]
 
 format of input data:
 
@@ -13,30 +18,30 @@ format of input data:
 `...`  
 `a[n-1] b[n-1]`
 
-## cpp solutions
+## solutions
 
-to test, how fast dfs SHOULD work, there is model cpp solution `dfs.cpp`
+cpp: `cpp_dfs1.cpp` multilist in one array (no stl), compile with -O0 
 
-## kotlin solutions
+cpp: `cpp_dfs2.cpp` multilist in one array (no stl), compile with -O3
 
-`dfs.kt` is the most natural implementation 
+java: `java_dfs1.java` ArrayList<Integer>[]
 
-`dfs2.kt` is attempt to get rid of `ArrayList<Int>`
+java: `java_dfs2.java` int[][]
 
-## log
+java: `java_dfs3_Egor.java` uses class [Graph](https://github.com/EgorKulikov/yaal/blob/master/lib/main/net/egork/graph/Graph.java) from `net.egork.graph`
 
-this folder contains generated benchmarks
+kt: `kt_dfs1.kt` ArrayList<Int>[]
 
-## test.sh
+kt: `kt_dfs2.kt` IntArray[]
 
-this script compiles and runs all generator and all solutions
+kt: `kt_dfs3.kt` multilist in one array
 
-## current results
+## Experiment results
 
-on tree with 3 000 000 vertices
+| Processor                   | OS           | Compilers                | Statistic                    |
+|-----------------------------|--------------|--------------------------|------------------------------|
+| Intel G4600 3.6 GHz         | Windows 10   | g++ 6.3.0, java64 11.0.1 | [statistic.md](statistic.md) |
+| Intel Core i5-5200U 2.2 GHz | Ubuntu 16.04 | g++ 7.1.0, java64 1.8    | ?                            |
 
-full optimized cpp-dfs works about `40 ms`
-
-full optimized kt-dfs works about `17350 ms`
-
-`433` times difference...
+All java/kotlin solutions work extremly slow
+on linear-tree tests. Why?

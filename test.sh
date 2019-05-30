@@ -47,7 +47,6 @@ for gen_f in gen*.kt ; do
 	test_file=${gen_name}.in
 	#compileKotlin ${gen_name}
 	runJar ${gen_name} $n > $test_file
-	continue
 	for f in cpp*.cpp   ; do name=${f/.*/}; testSolution "./$name" $name; done
 	for f in java*.java ; do name=${f/.*/}; testSolution "runJar $name" $name; done
 	for f in kt*.kt     ; do name=${f/.*/}; testSolution "runJar $name" $name; done
