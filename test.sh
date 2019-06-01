@@ -10,7 +10,7 @@ function testSolution {
 	($1 < $test_file) 2> "${log_name}" || exit 1
 }
 
-n=100000
+n=1000000
 
 # name=kt_dfs3
 # compileKt $name
