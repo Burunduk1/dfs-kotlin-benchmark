@@ -12,6 +12,9 @@
 | kt: ArrayList[]   | 748    | 165      | 10733  |
 | kt: IntArray[]    | 279    | 69       | 10876  |
 | kt: multilist[]   | 303    | 5103     | 10290  |
+| <span style="color:blue">kt: coroutine</span>     | <span style="color:blue">658</span>    | <span style="color:blue">986</span>      | <span style="color:blue">2151</span>    |
+
+`kt: coroutine` misses cache, see below n = 1 000 000
 
 ### dfs time (only dfs), n = 1 000 000
 
@@ -25,6 +28,7 @@
 | kt: ArrayList[]   | 240    | 77       | 3394   |
 | kt: IntArray[]    | 88     | 27       | 3450   |
 | kt: multilist[]   | 93     | 1484     | 3217   |
+| <span style="color:blue">kt: coroutine</span>     | <span style="color:blue">199</span>    | <span style="color:blue">108</span>      | <span style="color:blue">118</span>    |
 
 ### dfs time (only dfs), n = 100 000
 
@@ -38,6 +42,7 @@
 | kt: ArrayList[]   | 23     | 22       | 44     |
 | kt: IntArray[]    | 10     | 6        | 8      |
 | kt: multilist[]   | 8      | 14       | 6      |
+| kt: coroutine     | 53     | 46       | 39     |
 
 ### dfs time (only dfs), n = 30 000
 
