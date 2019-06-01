@@ -26,6 +26,7 @@ solutions = [
 	("kt: ArrayList[]", "kt_dfs1"),
 	("kt: IntArray[]", "kt_dfs2"),
 	("kt: multilist[]", "kt_dfs3"),
+	("kt: coroutine", "kt_dfs4_coroutine"),
 ]
 
 title = "soution/tree"

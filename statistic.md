@@ -12,6 +12,7 @@
 | kt: ArrayList[]   | 758    | 206      | 19907  |
 | kt: IntArray[]    | 265    | 68       | 18261  |
 | kt: multilist[]   | 328    | 8795     | 17916  |
+| kt: coroutine     | 633    | 543      | 830    |
 
 ### dfs time (only dfs), n = 1 000 000
 
@@ -25,6 +26,7 @@
 | kt: ArrayList[]   |  228   |   45     |  6378  |
 | kt: IntArray[]    |  78    |   23     |  5672  |
 | kt: multilist[]   |  94    | 2708     |  5635  |
+| kt: coroutine     | 192    | 163      | 329    |
 
 ### dfs time (only dfs), n = 100 000
 
@@ -38,6 +40,7 @@
 | kt: ArrayList[]   | 21     | 21       | 23     |
 | kt: IntArray[]    | 5      | 4        | 284    |
 | kt: multilist[]   | 5      | 58       | 374    |
+| kt: coroutine     | 32     | 46       | 32     |
 
 ### dfs time (only dfs), n = 30 000
 

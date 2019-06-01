@@ -22,3 +22,5 @@ function compileCpp {
 for f in *.cpp  ; do compileCpp  ${f/.*/}; done
 for f in *.kt   ; do compileKt   ${f/.*/}; done
 for f in *.java ; do compileJava ${f/.*/}; done
+
+#compileKt kt_dfs4_coroutine

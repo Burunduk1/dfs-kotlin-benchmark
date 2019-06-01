@@ -10,7 +10,7 @@ function testSolution {
 	($1 < $test_file) 2> "${log_name}" || exit 1
 }
 
-n=3000000
+n=100000
 
 # name=kt_dfs3
 # compileKt $name
@@ -24,6 +24,7 @@ for gen_f in gen*.kt ; do
 	test_file=${gen_name}.in
 	#compileKotlin ${gen_name}
 	runJar ${gen_name} $n > $test_file
+	#name=kt_dfs4_coroutine; testSolution "runJar $name" $name;
 	for f in cpp*.cpp   ; do name=${f/.*/}; testSolution "./$name" $name; done
 	for f in java*.java ; do name=${f/.*/}; testSolution "runJar $name" $name; done
 	for f in kt*.kt     ; do name=${f/.*/}; testSolution "runJar $name" $name; done
