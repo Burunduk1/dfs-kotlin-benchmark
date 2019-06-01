@@ -12,7 +12,7 @@
 | kt: ArrayList[]   | 758    | 206      | 19907  |
 | kt: IntArray[]    | 265    | 68       | 18261  |
 | kt: multilist[]   | 328    | 8795     | 17916  |
-| kt: coroutine     | 633    | 543      | 830    |
+| <span style="color:blue">kt: coroutine</span>     | <span style="color:blue">633</span>    | <span style="color:blue">543</span>      | <span style="color:blue">830</span>    |
 
 ### dfs time (only dfs), n = 1 000 000
 
