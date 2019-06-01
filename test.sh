@@ -2,7 +2,7 @@ echoerr() { echo "$@" 1>&2; }
 
 function runJar {
 	#echoerr runJar: \"$1.jar\"
-	java -Xss512M -jar $1.jar $2 || exit 1
+	java -Xss512M -Xmx512M -jar $1.jar $2 || exit 1
 }
 function testSolution {
 	log_name=${2}_${test_file/.*/}.log
